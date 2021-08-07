@@ -1,0 +1,26 @@
+{
+  "name": "tienda-online-bsale",
+  "version": "1.0.0",
+  "description": "Tienda Online - Bsale | Only JavaScript Frontend",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss tailwind-styles.css -o src/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcvegab/tienda-bsale-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcvegab/tienda-bsale-frontend/issues"
+  },
+  "homepage": "https://github.com/jcvegab/tienda-bsale-frontend#readme",
+  "dependencies": {
+    "autoprefixer": "^10.3.1",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.7"
+  }
+}

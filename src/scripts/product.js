@@ -20,9 +20,9 @@ export default function Product(parentSelector, productData) {
         <img src="${
           this.data.url_image ||
           'https://ctkbiotech.com/wp/wp-content/uploads/2018/03/not-available.jpg'
-        }"></img>
+        }" alt="${this.data.name}"></img>
       </div>
-      <div class="bg-gray-300">
+      <div class="p-3 bg-gray-300">
         <h3>${this.data.name}</h3>
         <span>${this.data.price}</span>
         <span>${(this.data.price * (100 - this.data.discount)) / 100}</span>

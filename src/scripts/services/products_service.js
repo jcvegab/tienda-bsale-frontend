@@ -12,4 +12,10 @@ ProductsService.prototype.list = () =>
     method: 'GET',
   });
 
+ProductsService.prototype.search = (query) =>
+  apiFetch(`${BASE_URL}/search`, {
+    method: 'POST',
+    body: { query: `${query}` },
+  });
+
 export default ProductsService;

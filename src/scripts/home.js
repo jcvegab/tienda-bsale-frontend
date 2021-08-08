@@ -1,4 +1,5 @@
 import STORE from './store.js';
+import Product from './product.js';
 
 export default function Home(parentSelector) {
   if (!Home.instance) {
@@ -45,10 +46,10 @@ export default function Home(parentSelector) {
         </div>
       </div>
     </header>
-    <main>
+    <main class="m-auto px-8">
       <div>
         <h2>Productos</h2>
-        <div class="js-products-container"></div>
+        <ul class="js-products-container grid grid-cols-4"></ul>
       </div>
     </main>
     <footer class="h-10 bg-gray-300 flex justify-center items-center">
@@ -74,5 +75,5 @@ Home.prototype.generateProducts = function (parentSelector) {
 
 Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
-  // this.generateProducts('.js-products-container');
+  this.generateProducts('.js-products-container');
 };

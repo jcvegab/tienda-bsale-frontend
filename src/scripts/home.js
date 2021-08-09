@@ -47,8 +47,8 @@ export default function Home(parentSelector) {
       </div>
     </header>
     <main class="m-auto px-8">
-      <div>
-        <h2>Productos</h2>
+      <div class="my-4" >
+        <h2 class="text-3xl font-bold text-gray-900">Productos</h2>
         <section class="container my-8 mx-auto px-4 md:px-12">
           <ul class="js-products-container grid gap-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2"></ul>
         </section>

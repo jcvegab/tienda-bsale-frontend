@@ -33,10 +33,16 @@ export default function Product(parentSelector, productData) {
         </div>
         <div class="p-3 bg-gray-300 h-full">
           <h3 class="font-semibold">${this.data.name}</h3>
-          <span>$${this.data.price / 100}</span>
+          <span${
+            this.data.discount !== 0 ? ` class="line-through text-red-600"` : ''
+          }>$${this.data.price / 100}</span>
           ${
             this.data.discount !== 0
-              ? `<span>$${
+              ? `<span ${
+                  this.data.discount !== 0
+                    ? ` class="text-green-600 font-semibold"`
+                    : ''
+                }>$${
                   (this.data.price * (100 - this.data.discount)) / 10000
                 }</span>`
               : ''
@@ -48,7 +54,7 @@ export default function Product(parentSelector, productData) {
           </div>
         </div>
       </li>
-    </div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+    </div>
     `;
   };
 }

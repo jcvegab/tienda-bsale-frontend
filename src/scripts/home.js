@@ -1,6 +1,7 @@
 import STORE from './store.js';
 import Category from './categories.js';
 import Product from './product.js';
+import ProductsService from './services/products_service.js';
 
 export default function Home(parentSelector) {
   if (!Home.instance) {
@@ -18,11 +19,11 @@ export default function Home(parentSelector) {
           <input
             type="search"
             name="query"
-            class="w-96 px-2 py-1 rounded z-0 focus:shadow focus:outline-none"
+            class="w-96 px-2 py-1 rounded z-0 focus:shadow focus:outline-none js-search-bar"
             placeholder="Busca tu producto aquí..."
           />
           <div class="absolute top-1 right-3 cursor-pointer">
-            <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+            <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500 js-search-button"></i>
           </div>
         </div>
         <div class="relative cursor-pointer">
@@ -86,28 +87,26 @@ Home.prototype.generateElements = function (parentSelector, selectedElement) {
   return elements;
 };
 
-// Home.prototype.generateCategories = function (parentSelector) {
-//   const container = this.parentElement.querySelector(parentSelector);
-//   const categories = STORE.categories.map((productData) => {
-//     return new Product(parentSelector, productData);
-//   });
-//   container.innerHTML = categories.join('');
-//   return categories;
-// };
-
-// Home.prototype.generateProducts = function (parentSelector) {
-//   const container = this.parentElement.querySelector(parentSelector);
-//   const products = STORE.products.map((productData) => {
-//     return new Product(parentSelector, productData);
-//   });
-//   container.innerHTML = products.join('');
-//   return products;
-// };
+Home.prototype.searchProducts = function (inputSelector, buttonSelector) {
+  const searchInput = this.parentElement.querySelector(inputSelector);
+  const searchButton = this.parentElement.querySelector(buttonSelector);
+  searchButton.addEventListener('click', async (e) => {
+    const productsService = new ProductsService();
+    const query = searchInput.value;
+    try {
+      const searchProducts = await productsService.search(query);
+      console.log(searchProducts);
+      STORE.products = [...searchProducts];
+      this.render();
+    } catch (e) {
+      alert(e.message);
+    }
+  });
+};
 
 Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
+  this.searchProducts('.js-search-bar', '.js-search-button');
   this.generateElements('.js-categories-container', 'categories');
   this.generateElements('.js-products-container', 'products');
-  // this.generateCategories('.js-categories-container');
-  // this.generateProducts('.js-products-container');
 };

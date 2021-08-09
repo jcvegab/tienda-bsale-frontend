@@ -15,7 +15,10 @@ ProductsService.prototype.list = () =>
 ProductsService.prototype.search = (query) =>
   apiFetch(`${BASE_URL}/search`, {
     method: 'POST',
-    body: { query: `${query}` },
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
   });
 
 export default ProductsService;

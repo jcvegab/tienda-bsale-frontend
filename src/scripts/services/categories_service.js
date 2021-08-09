@@ -12,4 +12,9 @@ CategoriesService.prototype.list = () =>
     method: 'GET',
   });
 
+CategoriesService.prototype.listProductsByCategory = (id) =>
+  apiFetch(`${BASE_URL}/categories/${id}/products`, {
+    method: 'GET',
+  });
+
 export default CategoriesService;

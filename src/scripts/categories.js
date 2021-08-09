@@ -1,3 +1,6 @@
+import Home from './home.js';
+import ProductsService from './services/products_service.js';
+
 export default function Category(parentSelector, categoryData) {
   this.parentSelector = parentSelector;
   this.parentElement = document.querySelector(parentSelector);
@@ -11,3 +14,22 @@ export default function Category(parentSelector, categoryData) {
     `;
   };
 }
+
+Category.prototype.listenSelectClick = function () {
+  const selectedCategory = this.parentElement.querySelector(
+    `.js-category-${this.data.id}`
+  );
+  selectedCategory.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const home = new Home();
+    const productsService = new ProductsService();
+    try {
+      const filteredProducts = await productsService.filterProducts(
+        this.data.id
+      );
+      home.render();
+    } catch (e) {
+      alert(e.message);
+    }
+  });
+};

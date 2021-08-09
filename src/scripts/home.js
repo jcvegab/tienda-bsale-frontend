@@ -95,7 +95,6 @@ Home.prototype.searchProducts = function (inputSelector, buttonSelector) {
     const query = searchInput.value;
     try {
       const searchProducts = await productsService.search(query);
-      console.log(searchProducts);
       STORE.products = [...searchProducts];
       this.render();
     } catch (e) {

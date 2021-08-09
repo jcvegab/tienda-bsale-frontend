@@ -27,8 +27,6 @@ Category.prototype.listenSelectClick = function () {
       const filteredProducts = await categoriesService.listProductsByCategory(
         this.data.id
       );
-
-      console.log(filteredProducts);
       STORE.products = [...filteredProducts];
       home.render();
     } catch (e) {

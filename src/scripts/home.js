@@ -52,7 +52,7 @@ export default function Home(parentSelector) {
       <div class="my-4" >
         <div>
           <h2 class="text-3xl font-bold text-gray-900">Categorías</h2>
-          <ul class="js-categories-container flex"></ul>
+          <ul class="js-categories-container my-8 flex gap-4"></ul>
         </div>
         <div>
           <h2 class="text-3xl font-bold text-gray-900">Productos</h2>

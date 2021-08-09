@@ -107,6 +107,12 @@ Home.prototype.searchProducts = function (inputSelector, buttonSelector) {
 Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
   this.searchProducts('.js-search-bar', '.js-search-button');
-  this.generateElements('.js-categories-container', 'categories');
+  const categories = this.generateElements(
+    '.js-categories-container',
+    'categories'
+  );
+  categories.forEach((category) => {
+    category.listenSelectClick();
+  });
   this.generateElements('.js-products-container', 'products');
 };

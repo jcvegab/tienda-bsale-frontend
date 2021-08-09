@@ -1,5 +1,6 @@
 import Home from './home.js';
-import ProductsService from './services/products_service.js';
+import CategoriesService from './services/categories_service.js';
+import STORE from './store.js';
 
 export default function Category(parentSelector, categoryData) {
   this.parentSelector = parentSelector;
@@ -20,13 +21,15 @@ Category.prototype.listenSelectClick = function () {
     `.js-category-${this.data.id}`
   );
   selectedCategory.addEventListener('click', async (e) => {
-    e.preventDefault();
     const home = new Home();
-    const productsService = new ProductsService();
+    const categoriesService = new CategoriesService();
     try {
-      const filteredProducts = await productsService.filterProducts(
+      const filteredProducts = await categoriesService.listProductsByCategory(
         this.data.id
       );
+
+      console.log(filteredProducts);
+      STORE.products = [...filteredProducts];
       home.render();
     } catch (e) {
       alert(e.message);

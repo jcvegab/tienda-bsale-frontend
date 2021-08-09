@@ -49,7 +49,9 @@ export default function Home(parentSelector) {
     <main class="m-auto px-8">
       <div>
         <h2>Productos</h2>
-        <ul class="js-products-container py-10 grid grid-cols-4 gap-6"></ul>
+        <section class="container my-8 mx-auto px-4 md:px-12">
+          <ul class="js-products-container grid gap-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2"></ul>
+        </section>
       </div>
     </main>
     <footer class="h-10 bg-gray-300 flex justify-center items-center">

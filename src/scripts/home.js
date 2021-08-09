@@ -1,10 +1,12 @@
 import STORE from './store.js';
+import Category from './categories.js';
 import Product from './product.js';
 
 export default function Home(parentSelector) {
   if (!Home.instance) {
     this.parentSelector = parentSelector;
     this.parentElement = document.querySelector(parentSelector);
+    this.allowedClasses = { categories: Category, products: Product };
     this.toString = function () {
       return `
       <header class="h-12 bg-gray-300 shadow flex justify-center">
@@ -48,10 +50,16 @@ export default function Home(parentSelector) {
     </header>
     <main class="m-auto px-8">
       <div class="my-4" >
-        <h2 class="text-3xl font-bold text-gray-900">Productos</h2>
-        <section class="container my-8 mx-auto px-4 md:px-12">
-          <ul class="js-products-container grid gap-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2"></ul>
-        </section>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900">Categorías</h2>
+          <ul class="js-categories-container flex"></ul>
+        </div>
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900">Productos</h2>
+          <section class="container my-8 mx-auto px-4 md:px-12">
+            <ul class="js-products-container grid gap-6 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2"></ul>
+          </section>
+        </div>
       </div>
     </main>
     <footer class="h-10 bg-gray-300 flex justify-center items-center">
@@ -66,16 +74,40 @@ export default function Home(parentSelector) {
   return Home.instance;
 }
 
-Home.prototype.generateProducts = function (parentSelector) {
+Home.prototype.generateElements = function (parentSelector, selectedElement) {
   const container = this.parentElement.querySelector(parentSelector);
-  const products = STORE.products.map((productData) => {
-    return new Product(parentSelector, productData);
+  const elements = STORE[selectedElement].map((elementData) => {
+    return new this.allowedClasses[selectedElement](
+      parentSelector,
+      elementData
+    );
   });
-  container.innerHTML = products.join('');
-  return products;
+  container.innerHTML = elements.join('');
+  return elements;
 };
+
+// Home.prototype.generateCategories = function (parentSelector) {
+//   const container = this.parentElement.querySelector(parentSelector);
+//   const categories = STORE.categories.map((productData) => {
+//     return new Product(parentSelector, productData);
+//   });
+//   container.innerHTML = categories.join('');
+//   return categories;
+// };
+
+// Home.prototype.generateProducts = function (parentSelector) {
+//   const container = this.parentElement.querySelector(parentSelector);
+//   const products = STORE.products.map((productData) => {
+//     return new Product(parentSelector, productData);
+//   });
+//   container.innerHTML = products.join('');
+//   return products;
+// };
 
 Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
-  this.generateProducts('.js-products-container');
+  this.generateElements('.js-categories-container', 'categories');
+  this.generateElements('.js-products-container', 'products');
+  // this.generateCategories('.js-categories-container');
+  // this.generateProducts('.js-products-container');
 };

@@ -21,7 +21,7 @@ Se realizó un diseño simple en  la plataforma Figma.
 ### Despligue del proyecto:
 Puedes revisar el proyecto aquí: https://tienda-bsale-frontend-jcvb0206.vercel.app/
 
-<img alt="Pantalla de inicio del frontend" src="https://doc-14-8c-docs.googleusercontent.com/docs/securesc/dtfnlo7vp8mnqnrbsmk9j4c1h6li24m5/tlu2eavvvcftpslp84kgjajdpq04e0o6/1628560875000/04650951640325776618/04720736748298053581/1WnD4zVoTFPWsrREm0co0fW86p0Pls88B" heigth="180" align="center" />
+<img alt="Pantalla de inicio del frontend" src="https://i.ibb.co/C6K4Wck/frontend.png" heigth="180" align="center" />
 
 
 ** Puedes ver el repositorio del backend del proyecto aquí: https://github.com/jcvegab/tienda-bsale-backend

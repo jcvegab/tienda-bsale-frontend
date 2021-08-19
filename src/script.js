@@ -9,6 +9,7 @@ async function init() {
   STORE.categories = await categoriesService.list();
   const productsService = new ProductsService();
   STORE.products = await productsService.list();
+  console.log(STORE);
   home.render();
 }
 

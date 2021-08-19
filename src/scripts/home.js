@@ -15,17 +15,17 @@ export default function Home(parentSelector) {
         <a href="/">
           <h1 class="text-xl">Bsale | Tienda Online</h1>
         </a>
-        <div class="flex">
+        <form class="flex js-search-form">
           <input
             type="search"
             name="query"
-            class="w-96 px-2 py-1 rounded-none rounded-tl rounded-bl z-0 focus:shadow focus:outline-none js-search-bar"
+            class="w-96 px-2 py-1 rounded-none rounded-tl rounded-bl z-0 focus:shadow focus:outline-none"
             placeholder="Busca tu producto aquí..."
           />
-          <div class="px-2 py-1 cursor-pointer bg-gray-200 rounded-tr rounded-br">
-            <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500 js-search-button"></i>
-          </div>
-        </div>
+          <button type="submit" class="px-2 py-1 cursor-pointer bg-gray-200 rounded-tr rounded-br">
+            <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+          </button>
+        </form>
         <div class="relative cursor-pointer">
           <i
             class="
@@ -87,12 +87,12 @@ Home.prototype.generateElements = function (parentSelector, selectedElement) {
   return elements;
 };
 
-Home.prototype.searchProducts = function (inputSelector, buttonSelector) {
-  const searchInput = this.parentElement.querySelector(inputSelector);
-  const searchButton = this.parentElement.querySelector(buttonSelector);
-  searchButton.addEventListener('click', async (e) => {
+Home.prototype.searchProducts = function (formSelector) {
+  const Form = this.parentElement.querySelector(formSelector);
+  Form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const productsService = new ProductsService();
-    const query = searchInput.value;
+    const query = e.target[0].value;
     try {
       const searchProducts = await productsService.search(query);
       STORE.products = [...searchProducts];
@@ -105,7 +105,7 @@ Home.prototype.searchProducts = function (inputSelector, buttonSelector) {
 
 Home.prototype.render = function () {
   this.parentElement.innerHTML = this;
-  this.searchProducts('.js-search-bar', '.js-search-button');
+  this.searchProducts('.js-search-form');
   const categories = this.generateElements(
     '.js-categories-container',
     'categories'

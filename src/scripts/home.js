@@ -15,14 +15,14 @@ export default function Home(parentSelector) {
         <a href="/">
           <h1 class="text-xl">Bsale | Tienda Online</h1>
         </a>
-        <div class="relative">
+        <div class="flex">
           <input
             type="search"
             name="query"
-            class="w-96 px-2 py-1 rounded z-0 focus:shadow focus:outline-none js-search-bar"
+            class="w-96 px-2 py-1 rounded-none rounded-tl rounded-bl z-0 focus:shadow focus:outline-none js-search-bar"
             placeholder="Busca tu producto aquí..."
           />
-          <div class="absolute top-1 right-3 cursor-pointer">
+          <div class="px-2 py-1 cursor-pointer bg-gray-200 rounded-tr rounded-br">
             <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500 js-search-button"></i>
           </div>
         </div>

@@ -11,18 +11,18 @@ export default function Home(parentSelector) {
     this.toString = function () {
       return `
       <header class="h-12 bg-gray-300 shadow flex justify-center">
-      <div class="w-4/5 flex justify-between items-center">
+      <div class="w-11/12 lg:w-9/12 flex justify-between items-center">
         <a href="/">
           <h1 class="text-xl">Bsale | Tienda Online</h1>
         </a>
-        <form class="flex js-search-form">
+        <form class="flex w-4/12 md:w-5/12 lg:w-6/12 js-search-form">
           <input
             type="search"
             name="query"
             class="w-96 px-2 py-1 rounded-none rounded-tl rounded-bl z-0 focus:shadow focus:outline-none"
             placeholder="Busca tu producto aquí..."
           />
-          <button type="submit" class="px-2 py-1 cursor-pointer bg-gray-200 rounded-tr rounded-br">
+          <button name="query" type="submit" class="px-2 py-1 cursor-pointer bg-gray-200 rounded-tr rounded-br">
             <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
           </button>
         </form>
@@ -53,7 +53,7 @@ export default function Home(parentSelector) {
       <div class="my-4" >
         <div>
           <h2 class="text-3xl font-bold text-gray-900">Categorías</h2>
-          <ul class="js-categories-container my-8 flex gap-4"></ul>
+          <ul class="js-categories-container my-8 flex flex-wrap gap-4"></ul>
         </div>
         <div>
           <h2 class="text-3xl font-bold text-gray-900">Productos</h2>

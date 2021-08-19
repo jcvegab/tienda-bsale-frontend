@@ -11,22 +11,22 @@ export default function Home(parentSelector) {
     this.toString = function () {
       return `
       <header class="h-12 bg-gray-300 shadow flex justify-center">
-      <div class="w-11/12 lg:w-9/12 flex justify-between items-center">
-        <a href="/">
-          <h1 class="text-xl">Bsale | Tienda Online</h1>
+      <div class="w-11/12 py-2 lg:w-9/12 flex flew-wrap justify-between items-center">
+        <a href="/" class="mr-12">
+          <h1 class="text-xl">Bsale<span class="hidden sm:inline"> | Tienda Online</span></h1>
         </a>
-        <form class="flex w-4/12 md:w-5/12 lg:w-6/12 js-search-form">
+        <form class="flex flex-grow max-w-lg js-search-form">
           <input
             type="search"
             name="query"
-            class="w-96 px-2 py-1 rounded-none rounded-tl rounded-bl z-0 focus:shadow focus:outline-none"
+            class="w-full px-2 py-1 rounded-none rounded-tl rounded-bl z-0 focus:shadow focus:outline-none"
             placeholder="Busca tu producto aquí..."
           />
           <button name="query" type="submit" class="px-2 py-1 cursor-pointer bg-gray-200 rounded-tr rounded-br">
             <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
           </button>
         </form>
-        <div class="relative cursor-pointer">
+        <div class="ml-12 mr-5 relative cursor-pointer">
           <i
             class="
               fa fa-shopping-cart

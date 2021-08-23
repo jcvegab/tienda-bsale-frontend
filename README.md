@@ -11,12 +11,21 @@ anteriormente mencionados con su respectivos diseños y funcionalidades.
 Se hizo uso de patrones de diseño como Singleton en la ejecución del Home y Factory en la creación de instancias de los productos 
 obtenidos de la API.
 
-### Diseño de la UI del proyecto
-Se realizó un diseño simple en  la plataforma Figma.
-- Puedes ver el diseño aquí: https://www.figma.com/file/H2PhkdbYbNpLEQGP3pDOeS/Tienda-Online-Bsale
+### Tecnologías usadas
+* HTML
+* JavaScript
+* Tailwind CSS (Framework CSS)
 
-### Herramientas
-* Tailwind CSS: Usado para el desarrollo de la UI.
+### Estructura de ficheros
+En la carpeta raiz se encuentran los ficheros de dependencias e información del proyecto (package.json) además de los ficheros de configuración de Tailwind y compilación de CSS.
+Dentro de la carpeta src se encuentran los archivos a ejecutarse en el cliente.
+En la carpeta scripts se encuentran los archivos de Javascript a ejecutarse para iniciar el SPA (home, products y categories), así mismo esta contiene la carpeta services, donde se realiza la estandarización de las peticiones a la API segmentado por cada modelo presente en el proyecto. 
+
+<img alt="Estructura de ficheros" src="https://i.ibb.co/jkCwT1w/Sin-t-tulo.png">
+
+### Layout del proyecto
+Se realizó un diseño simple en  la plataforma Figma.
+- Puedes ver el layout aquí: https://www.figma.com/file/H2PhkdbYbNpLEQGP3pDOeS/Tienda-Online-Bsale
 
 ### Despligue del proyecto:
 Puedes revisar el proyecto aquí: https://tienda-bsale-frontend-jcvb0206.vercel.app/

@@ -1,4 +1,4 @@
-import { apiFetch, BASE_URL } from './api_fetch.js';
+import { apiFetch, BASE_URL } from "./api_fetch.js";
 
 function CategoriesService() {
   if (!CategoriesService.instance) {
@@ -9,12 +9,18 @@ function CategoriesService() {
 
 CategoriesService.prototype.list = () =>
   apiFetch(`${BASE_URL}/categories`, {
-    method: 'GET',
+    method: "GET",
+  }).catch((error) => {
+    console.error(error);
+    return [];
   });
 
 CategoriesService.prototype.listProductsByCategory = (id) =>
   apiFetch(`${BASE_URL}/categories/${id}/products`, {
-    method: 'GET',
+    method: "GET",
+  }).catch((error) => {
+    console.error(error);
+    return [];
   });
 
 export default CategoriesService;
